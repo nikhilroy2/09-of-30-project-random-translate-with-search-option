@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+    integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' />
+  <style>
+    header{
+      height: 100vh;
+      background: #fff url('https://cdn.pixabay.com/photo/2020/05/30/08/04/sunset-5238044__340.jpg') no-repeat center/cover;
+    }
+    header nav{
+      background: #1976D2;
+    }
+    .search_action_wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: .3s;
+      background: rgba(255, 255, 255, 0.405);
+
+
+    }
+    .hide_search_action{
+        opacity: 0;
+        pointer-events: none;
+        user-select: none;
+      }
+
+    .search_action_wrapper .input_wrapper {
+      width: 80vmin;
+      position: relative;
+    }
+    .search_action_wrapper .input_wrapper input{
+      font-size: 1.5rem;
+      font-weight: bold;
+      border: none;
+      width: 100%;
+      outline: none;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.266);
+      padding: .5rem 1.5rem;
+      border-radius: 50px;
+    }
+
+    .search_action_wrapper input::placeholder {
+      color: #000;
+    }
+    .search_action_wrapper button{
+      right: 0;
+      position: absolute;
+      top: -90%;
+    }
+    #collapsibleNavId{
+      flex-grow: 0;
+    }
+    #toggle_close{
+      transition: .3s;
+    }
+    #toggle_close:hover{
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-sm ">
+      <a class="navbar-brand text-light" href="#">BOSNO</a>
+      
+      
+
+      <div class="ml-auto ml-sm-0 order-sm-4">
+        <button onclick="toggleSearch()" class="btn align-middle">
+          <i class="fas fa-search   text-light "></i>
+        </button>
+        <div class="search_action_wrapper hide_search_action">
+          <div class="input_wrapper">
+            <input type="text" placeholder="Type to search">
+            <button id="toggle_close" onclick="toggleSearch()" class="btn
+             text-primary position-absolute">
+              <i class=" text-primary fas fa-2x fa-times    "></i>
+            </button>
+          </div>
+        </div>
+      </div>
+       
+      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars text-light    "></i>
+      </button>
+
+      <div class="order-sm-2 ml-sm-auto  collapse navbar-collapse" id="collapsibleNavId">
+       
+       
+        <ul class="navbar-nav mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">Tag</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">Elements</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">Log in</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">Sign up</a>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+    <script>
+      function toggleSearch(){
+        let search_action_wrapper = document.querySelector('.search_action_wrapper');
+        search_action_wrapper.classList.toggle('hide_search_action');
+        if(search_action_wrapper.classList.contains('hide_search_action')){
+          let animateArr = ['translateX(100%)', 'translateY(100%)', 'translateX(-100%)', 'translateY(-100%)'];
+          search_action_wrapper.style.transform = animateArr[Math.floor(Math.random() * animateArr.length)]
+        } else {
+          search_action_wrapper.style = '';
+        }
+      }
+    </script>
+</body>
+
+</html>
